@@ -110,6 +110,40 @@ Route::middleware(['auth', 'role:Owner,Manajer'])->group(function () {
 - `model_has_permissions` - Relasi user-permission
 - `role_has_permissions` - Relasi role-permission
 
+## Database Seeding
+
+### RoleSeeder
+Creates the following roles:
+- Owner
+- Manajer
+- Kasir
+- Admin Akuntansi
+- Staf Gudang
+- Pegawai
+
+### UserSeeder
+Creates default users for testing and initial setup:
+
+| User | Email | Password | Role |
+|------|-------|----------|----------|
+| Admin | admin@example.com | admin | Owner |
+| Manajer | manajer@example.com | manajer | Manajer |
+| Kasir | kasir@example.com | kasir | Kasir |
+| Admin Akuntansi | adminakuntansi@example.com | adminakuntansi | Admin Akuntansi |
+| Staf Gudang | stafgudang@example.com | stafgudang | Staf Gudang |
+| Pegawai | pegawai@example.com | pegawai | Pegawai |
+
+**Note**: These are default credentials for development/testing. Change passwords in production.
+
+```bash
+# Run seeders
+php artisan db:seed --class=RoleSeeder
+php artisan db:seed --class=UserSeeder
+
+# Or run all seeders
+php artisan db:seed
+```
+
 ## Commands
 
 ### Seeding Roles
